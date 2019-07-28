@@ -5,7 +5,10 @@ import lombok.Data;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
-public class EventBriteEvent {
+class EventBriteEvent {
     private EventBriteEventName name;
     private EventBriteEventDescription description;
+    private EventBriteEventVenue venue;
+    private EventBriteEventStartDate start;
+    private EventBriteEventEndDate end;
 }

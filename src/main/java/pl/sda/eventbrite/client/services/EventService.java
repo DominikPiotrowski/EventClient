@@ -9,14 +9,16 @@ import pl.sda.eventbrite.client.sources.SupportedEventSources;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 
 @Component
 @AllArgsConstructor
 public class EventService {
     private EventSourceFactory eventSourceFactory;
 
-    public List<CommonEvent> searchEvents(LocalDate startDate, LocalDate endDate, String city, String name) {
+    public List<CommonEvent> searchEvents(Map<SearchParameters, Object> parameters) {
+
         EventSource eventSource = eventSourceFactory.getEventSource(SupportedEventSources.EVENTBRITE);
-        return eventSource.findEvents(startDate, endDate, city, name);
+        return eventSource.findEvents(parameters);
     }
 }
