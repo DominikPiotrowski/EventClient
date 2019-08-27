@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @AllArgsConstructor
-public class EventbriteSource implements EventSource {
+public class EventBriteSource implements EventSource {
 
     private RestTemplate restTemplate;
     private String apiToken;
@@ -52,5 +52,4 @@ public class EventbriteSource implements EventSource {
         }
         return stringBuilder.toString();
     }
-
 }

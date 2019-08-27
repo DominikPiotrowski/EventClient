@@ -11,7 +11,7 @@
     <groupId>pl.sda.eventbrite</groupId>
     <artifactId>client</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>client</name>
+    <name>EventClient</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

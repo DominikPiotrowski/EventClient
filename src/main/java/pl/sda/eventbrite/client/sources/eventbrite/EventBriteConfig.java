@@ -20,8 +20,8 @@ class EventBriteConfig {
     }
 
     @Bean
-    EventbriteSource eventbriteSource(RestTemplate restTemplate) {
-        return new EventbriteSource(restTemplate, eventbriteApiKey, eventbriteUrl);
+    EventBriteSource eventbriteSource(RestTemplate restTemplate) {
+        return new EventBriteSource(restTemplate, eventbriteApiKey, eventbriteUrl);
     }
 
 }
