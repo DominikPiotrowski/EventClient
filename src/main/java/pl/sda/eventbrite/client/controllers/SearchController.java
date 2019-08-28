@@ -1,6 +1,7 @@
 package pl.sda.eventbrite.client.controllers;
 
 import lombok.AllArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,8 +20,8 @@ public class SearchController {
 
     private EventService eventService;
     @GetMapping("/events")
-    public List<CommonEvent> search(@RequestParam(required = false) LocalDate startDate,
-                                    @RequestParam(required = false) LocalDate endDate,
+    public List<CommonEvent> search(@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)LocalDate startDate,
+                                    @RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)LocalDate endDate,
                                     @RequestParam(required = false) String city,
                                     @RequestParam(required = false) String name) {
         Map<SearchParameters,Object> parameters = new HashMap<>();

@@ -8,6 +8,10 @@ import pl.sda.eventbrite.client.services.SearchParameters;
 import pl.sda.eventbrite.client.sources.EventSource;
 import pl.sda.eventbrite.client.sources.eventbrite.model.EventBriteResponse;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -24,8 +28,12 @@ public class EventBriteSource implements EventSource {
             Map<SearchParameters, Object> searchParams) {
 
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("start_date.range_start", searchParams.get(SearchParameters.START_DATE));
-        parameters.put("start_date.range_end", searchParams.get(SearchParameters.END_DATE));
+        LocalDateTime startDate = ((LocalDate) searchParams.get(SearchParameters.START_DATE)).atTime(0,0,1);
+        parameters.put("start_date.range_start", startDate);
+
+        LocalDateTime endDate = ((LocalDate) searchParams.get(SearchParameters.END_DATE)).atTime(23,59, 59);
+        parameters.put("start_date.range_end", endDate);
+
         parameters.put("location.address", searchParams.get(SearchParameters.CITY));
         parameters.put("q", searchParams.get(SearchParameters.NAME));
         parameters.put("token", apiToken);
