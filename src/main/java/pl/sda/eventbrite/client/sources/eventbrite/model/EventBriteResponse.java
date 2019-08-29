@@ -15,7 +15,7 @@ public class EventBriteResponse {
 
     public List<CommonEvent> toCommonModel() {
         return events.stream()
-                .map(x -> EvenBriteToCommonModelMapper.convertToCommonEvents(x)).
+                .map(x -> EventBriteToCommonModelMapper.convertToCommonEvents(x)).
                         collect(Collectors.toList());
     }
 }

@@ -2,7 +2,7 @@ package pl.sda.eventbrite.client.sources.eventbrite.model;
 
 import pl.sda.eventbrite.client.model.CommonEvent;
 
- class EvenBriteToCommonModelMapper {
+ class EventBriteToCommonModelMapper {
 
     static CommonEvent convertToCommonEvents(EventBriteEvent event) {
 
